@@ -1,4 +1,5 @@
 public class Solution {
+
     int max(int a, int b) {
         int res = 0;
 
@@ -31,11 +32,11 @@ public class Solution {
         }
 
         if(j < n - 1) {
-            // Sell stock bought at day i on day j and buy stock on day j
+            // Sell stock bought at day i on day j and buy stock on day j or later
             int prof_loc1 = p[j] - p[i] + max_profit_rec(p, j, j + 1, dp);
-            // Sell stock bought at day i at a later day
+            // Sell stock bought at day i at some later day
             int prof_loc2 = max_profit_rec(p, i, j + 1, dp);
-            // Do not buy stock at day i and instead buy stock at a later day
+            // Do not buy stock at day i and instead buy stock at some later day
             int prof_loc3 = max_profit_rec(p, i + 1, i + 2, dp);
 
             // Compute max profit
